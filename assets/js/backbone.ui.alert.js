@@ -13,31 +13,31 @@
 	// Support backbone app (if available)
 	var View = ( typeof APP != "undefined" && !_.isUndefined( APP.View) ) ? APP.View : Backbone.View;
 	
-	
-	
 	Backbone.UI.Alert = View.extend({
-		options: {
-            parentTag : "body"
-            
+        
+        el: function(){ return $('<div class="ui-alert top-center error"><span></span></div>'); }, 
+		
+        options: {
+            parentTag : "body",
+            message: ""
         }, 
 		
 		events: {
-			"click .ui-alert-control": "showAlert",
-			"click .ui-alert": "removeAlert",
+			"click": "close",
 		},
 		
-		showAlert: function( e ) {
-			var message = $(e.target).attr("title");
-			// console.log(message);
+		initialize: function( options ) {
 			
-			var alertBox = $('<div class="ui-alert top-center error"><span>' + message + '</span></div>');
+			//var alertBox = $('<div class="ui-alert top-center error"><span>' + this.options.message + '</span></div>');
 			
-			$(this.options.parentTag).append(alertBox);
-			e.preventDefault();
+            $(this.el).find("span").html( this.options.message );
+			
+			$(this.options.parentTag).append( $(this.el) );
+            
 		}, 
 		
-		removeAlert: function() {
-			$(".ui-alert").remove();
+		close: function() {
+			$(this.el).remove();
 		}
 		
 	});
