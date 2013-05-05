@@ -7,9 +7,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<link rel="stylesheet" href="../../assets/css/common.min.css" type="text/css" media="screen">
-
-
+<script type="text/javascript" src="//rawgithub.com/commons/common.js/master/build/common.js"></script>
+<link rel="stylesheet" href="//rawgithub.com/commons/common.css/master/build/common.min.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../assets/css/backbone.ui.alert.css" type="text/css" media="screen">
 
 
@@ -45,7 +44,6 @@ html, body {
   <h1>backbone.ui.alert</h1>
   <p>A light weight ui alert system, to display errors, warnings, alerts, notifications and confirmations to the user</p>
   <a href="" class="ui-alert-control" title="This is my message">Click me</a> </div>
-<script type="text/javascript" src="//raw.github.com/commons/common.js/master/build/common-min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
@@ -56,11 +54,22 @@ html, body {
 // instantiate view
 
 
-var view = new Backbone.UI.Alert({
-	// el : 'body > .ui-sidenav'
-	el : 'body',
-	// parentTag : 'header'
-});
+    var View = Backbone.View.extend({
+        el: "body",
+        events: {
+            "click a": "alert"
+        },
+        alert: function(e){
+            e.preventDefault();
+            
+            var alert = new Backbone.UI.Alert({
+                message : $(e.target).attr("title")
+            });
+        }
+    });
+    
+    new View()
+
 </script>
 </body>
 </html>
