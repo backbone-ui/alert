@@ -15,11 +15,13 @@
 	
 	Backbone.UI.Alert = View.extend({
         
-        el: function(){ return $('<div class="ui-alert top-center error"><span></span></div>'); }, 
+        el: function(){ return $('<div class="ui-alert"><span></span></div>'); }, 
 		
         options: {
             parentTag : "body",
-            message: ""
+            message: "",
+			type: "info",
+			position: "top-center"
         }, 
 		
 		events: {
@@ -29,7 +31,7 @@
 		initialize: function( options ) {
 			
 			//var alertBox = $('<div class="ui-alert top-center error"><span>' + this.options.message + '</span></div>');
-			
+			$(this.el).addClass( this.options.type ).addClass( this.options.position );
             $(this.el).find("span").html( this.options.message );
 			
 			$(this.options.parentTag).append( $(this.el) );

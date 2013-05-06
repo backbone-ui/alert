@@ -63,12 +63,13 @@ html, body {
             e.preventDefault();
             
             var alert = new Backbone.UI.Alert({
-                message : $(e.target).attr("title")
+                message : $(e.target).attr("title"),
+				type: "success"
             });
         }
     });
     
-    new View()
+    new View();
 
 </script>
 </body>
