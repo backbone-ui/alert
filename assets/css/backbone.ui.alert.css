@@ -4,15 +4,17 @@
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	padding: 5px;
+	/* always place the alert above everything else */
+	z-index: 9999;
 }
 
 .ui-alert.top-center {
-	position: fixed; 
-	top: 20px; 
-	left: 50%; 
-	width: 300px; 
-	margin-left: -150px; 
-	height: auto; 
+	position: fixed;
+	top: 20px;
+	left: 50%;
+	width: 300px;
+	margin-left: -150px;
+	height: auto;
 }
 
 .ui-alert.error {
