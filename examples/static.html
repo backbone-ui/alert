@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Backbone UI Alert</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="//rawgithub.com/commons/common.js/master/build/common-min.js"></script>
+<link rel="stylesheet" href="//rawgithub.com/commons/common.css/master/build/common-min.css" type="text/css" media="screen">
+<!-- styles -->
+<link rel="stylesheet" href="../../assets/css/backbone.ui.alert.css" type="text/css" media="screen">
+
+<style>
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 95%;
+	line-height: 160%;
+	background-color: @white;
+	overflow: hidden;
+}
+
+#main {
+	position: relative;
+	top: 60px;
+	width: 100%;
+	height: 100%;
+	color: @black;
+	background-color: #fff;
+	padding: 10px;
+	z-index: 99;
+}
+
+</style>
+</head>
+<body>
+
+<div id="main">
+	<h1>backbone.ui.alert</h1>
+	<p>A light weight ui alert system, to display errors, warnings, alerts, notifications and confirmations to the user</p>
+	<a href="" class="ui-alert-control" title="This is my message">Click me</a>
+</div>
+
+
+<!-- dependencies -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+<!-- lib -->
+<script type="text/javascript" src="../../assets/js/backbone.ui.alert.js"></script>
+<!-- example -->
+<script type="text/javascript">
+// instantiate view
+var View = Backbone.View.extend({
+	el: "body",
+	events: {
+		"click a": "alert"
+	},
+	alert: function(e){
+		e.preventDefault();
+
+		var alert = new Backbone.UI.Alert({
+			message : $(e.target).attr("title"),
+			type: "success"
+		});
+	}
+});
+
+new View();
+</script>
+
+</body>
+</html>
