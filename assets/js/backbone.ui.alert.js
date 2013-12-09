@@ -6,10 +6,12 @@
 // Licensed under the MIT license:
 // http://makesites.org/licenses/MIT
 
-(function($, _, Backbone, APP) {
+(function(w, _, Backbone, APP) {
 
 	// Support backbone app (if available)
 	var View = ( typeof APP != "undefined" && !_.isUndefined(APP.View) ) ? APP.View : Backbone.View;
+	// find the query lib
+	var $ = w.jQuery || w.Zepto;
 
 	var Alert = View.extend({
 
@@ -77,4 +79,4 @@
 	}
 
 
-})(this.jQuery, this._, this.Backbone, this.APP);
+})(this.window, this._, this.Backbone, this.APP);
