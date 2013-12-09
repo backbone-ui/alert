@@ -9,7 +9,7 @@
 (function(w, _, Backbone, APP) {
 
 	// Support backbone app (if available)
-	var View = ( typeof APP != "undefined" && !_.isUndefined(APP.View) ) ? APP.View : Backbone.View;
+	var View = ( typeof APP != "undefined" && typeof APP.View != "undefined" ) ? APP.View : Backbone.View;
 	// find the query lib
 	var $ = w.jQuery || w.Zepto;
 
