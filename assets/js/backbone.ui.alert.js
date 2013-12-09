@@ -18,7 +18,7 @@
 		el: function(){ return $('<div class="ui-alert"><span></span></div>'); },
 
 		options: {
-			parentTag : "body",
+			parentEl: "body",
 			message: "",
 			type: "info",
 			position: "top-center",
@@ -36,7 +36,7 @@
 			$el.addClass( this.options.type ).addClass( this.options.position );
 			$el.find("span").html( this.options.message );
 
-			$(this.options.parentTag).append( $el );
+			$(this.options.parentEl).append( $el );
 			// add fading effect
 			if( this.options.fade ){
 				setTimeout(function(){
