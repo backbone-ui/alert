@@ -42,6 +42,7 @@
 				setTimeout(function(){
 					//$el.fadeOut("fast", function(){ $el.remove(); });
 					$el.addClass("fade-out");
+					$el.on('webkitTransitionEnd', function(e){ $el.remove(); });
 				}, this.options.fade);
 			}
 
