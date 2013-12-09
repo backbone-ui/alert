@@ -40,7 +40,8 @@
 			// add fading effect
 			if( this.options.fade ){
 				setTimeout(function(){
-					$el.fadeOut("fast", function(){ $el.remove(); });
+					//$el.fadeOut("fast", function(){ $el.remove(); });
+					$el.addClass("fade-out");
 				}, this.options.fade);
 			}
 
