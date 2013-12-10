@@ -42,6 +42,14 @@ These are the varialbes that give you access to a number of features of the plug
 
 ## Showcase
 
+A few of the sites using this open source:
+
+[![Cloudvisio](http://appicon.makesit.es/cloudvisio.com)](http://cloudvisio.com)
+[![Roomchecking](http://appicon.makesit.es/roomchecking.com)](http://roomchecking.com)
+[![CRUDr](http://appicon.makesit.es/crudr.com)](http://crudr.com)
+[![GoCollab](http://appicon.makesit.es/gocollab.com)](http://gocollab.com)
+[![Chiiv](http://appicon.makesit.es/gocollab.com)](http://chiiv.com)
+[![tIssues](http://appicon.makesit.es/tissues.kdiweb.net)](http://apps.facebook.com/tissues)
 
 
 ## Credits
