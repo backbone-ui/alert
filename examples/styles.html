@@ -26,7 +26,6 @@ html, body {
 
 #main {
 	position: relative;
-	top: 60px;
 	width: 100%;
 	height: 100%;
 	color: @black;
@@ -40,38 +39,19 @@ html, body {
 <body>
 
 <div id="main">
-	<h1>backbone.ui.alert</h1>
-	<p>A light weight ui alert system, to display errors, warnings, alerts, notifications and confirmations to the user</p>
-	<a href="" class="ui-alert-control" title="This is my message">Click me</a>
+	<h1>Styles</h1>
+	<p>Here are the main styles, part of <a href="../assets/css/backbone.ui.alert.css">the stylesheet</a>.</p>
+	<h2>Error</h2>
+	<div class="ui-alert error" style="position: relative"><span>this is an error message</span></div>
+	<h2>Warning</h2>
+	<div class="ui-alert warning" style="position: relative"><span>this is a warning</span></div>
+	<h2>Success</h2>
+	<div class="ui-alert success" style="position: relative"><span>this is a success message</span></div>
+	<h2>Info</h2>
+	<div class="ui-alert info" style="position: relative"><span>this is an info notification</span></div>
+
 </div>
 
-
-<!-- dependencies -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
-<!-- lib -->
-<script type="text/javascript" src="../assets/js/backbone.ui.alert.js"></script>
-<!-- example -->
-<script type="text/javascript">
-// instantiate view
-var View = Backbone.View.extend({
-	el: "body",
-	events: {
-		"click a": "alert"
-	},
-	alert: function(e){
-		e.preventDefault();
-
-		var alert = new Backbone.UI.Alert({
-			message : $(e.target).attr("title"),
-			type: "success"
-		});
-	}
-});
-
-new View();
-</script>
 
 </body>
 </html>

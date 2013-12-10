@@ -40,9 +40,11 @@ html, body {
 <body>
 
 <div id="main">
-	<h1>backbone.ui.alert</h1>
-	<p>A light weight ui alert system, to display errors, warnings, alerts, notifications and confirmations to the user</p>
-	<a href="" class="ui-alert-control" title="This is my message">Click me</a>
+	<h1>Positions</h1>
+	<p>The alerts may be placed in different locations in the page, using the "position" option in the JavaScript.</p>
+	<h2>Top center</h2>
+	<p>This is the most common usage (and the default value), displaying the alert at the top of the page...</p>
+	<a href="" class="ui-alert-control top-center" title="This is my message">Click me</a>
 </div>
 
 
@@ -58,14 +60,15 @@ html, body {
 var View = Backbone.View.extend({
 	el: "body",
 	events: {
-		"click a": "alert"
+		"click a.top-center": "alertTopCenter"
 	},
-	alert: function(e){
+	alertTopCenter: function(e){
 		e.preventDefault();
 
 		var alert = new Backbone.UI.Alert({
 			message : $(e.target).attr("title"),
-			type: "success"
+			type: "success",
+			fade: 3000
 		});
 	}
 });

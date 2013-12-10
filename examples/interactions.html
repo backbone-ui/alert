@@ -40,8 +40,10 @@ html, body {
 <body>
 
 <div id="main">
-	<h1>backbone.ui.alert</h1>
-	<p>A light weight ui alert system, to display errors, warnings, alerts, notifications and confirmations to the user</p>
+	<h1>Interactions</h1>
+	<p>Some of the ways you can embed alerts in you application</p>
+	<h2>On click</h2>
+	<p>When a user clicks you can give them a positive response:</p>
 	<a href="" class="ui-alert-control" title="This is my message">Click me</a>
 </div>
 
@@ -65,7 +67,8 @@ var View = Backbone.View.extend({
 
 		var alert = new Backbone.UI.Alert({
 			message : $(e.target).attr("title"),
-			type: "success"
+			type: "success",
+			fade: 3000
 		});
 	}
 });

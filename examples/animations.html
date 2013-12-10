@@ -40,9 +40,14 @@ html, body {
 <body>
 
 <div id="main">
-	<h1>backbone.ui.alert</h1>
-	<p>A light weight ui alert system, to display errors, warnings, alerts, notifications and confirmations to the user</p>
-	<a href="" class="ui-alert-control" title="This is my message">Click me</a>
+	<h1>Animations</h1>
+	<p>The alerts may have animations embedded, mostly by using additional classes that use css transitions.</p>
+	<h2>Still</h2>
+	<p>When we need the user to actively confirm they saw the alert, we leave the alert always visible, in which case the alert is hidden when clicked.</p>
+	<a href="" class="ui-alert-control still" title="Please click on the message to confirm you've read it">Click me</a>
+	<h2>Fade out</h2>
+	<p>For short bursts of information we may want a short-lived alert - the following notification will appear only for three seconds:</p>
+	<a href="" class="ui-alert-control fade" title="This is a quick update, that will be hidden shortly">Click me</a>
 </div>
 
 
@@ -58,14 +63,24 @@ html, body {
 var View = Backbone.View.extend({
 	el: "body",
 	events: {
-		"click a": "alert"
+		"click a.still": "still",
+		"click a.fade": "fade"
 	},
-	alert: function(e){
+	still: function(e){
 		e.preventDefault();
 
 		var alert = new Backbone.UI.Alert({
 			message : $(e.target).attr("title"),
-			type: "success"
+			type: "info"
+		});
+	},
+	fade: function(e){
+		e.preventDefault();
+
+		var alert = new Backbone.UI.Alert({
+			message : $(e.target).attr("title"),
+			type: "info",
+			fade: 3000
 		});
 	}
 });
