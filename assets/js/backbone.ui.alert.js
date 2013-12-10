@@ -1,10 +1,11 @@
-// Backbone.js Alert extension
-//
-// Created by: Lyndel Thomas (@ryndel)
-// Source: https://github.com/backbone-ui/alert
-//
-// Licensed under the MIT license:
-// http://makesites.org/licenses/MIT
+/* Backbone UI: Alert
+ * Source: https://github.com/backbone-ui/alert
+ * Copyright © Makesites.org
+ *
+ * Initiated by Lyndel Thomas (@ryndel)
+ * Distributed through [Makesites.org](http://makesites.org)
+ * Released under the [MIT license](http://makesites.org/licenses/MIT)
+ */
 
 (function(w, _, Backbone, APP) {
 
