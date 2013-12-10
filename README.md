@@ -48,7 +48,7 @@ A few of the sites using this open source:
 [![Roomchecking](http://appicon.makesit.es/roomchecking.com)](http://roomchecking.com)
 [![CRUDr](http://appicon.makesit.es/crudr.com)](http://crudr.com)
 [![GoCollab](http://appicon.makesit.es/gocollab.com)](http://gocollab.com)
-[![Chiiv](http://appicon.makesit.es/gocollab.com)](http://chiiv.com)
+[![Chiiv](http://appicon.makesit.es/chiiv.com)](http://chiiv.com)
 [![tIssues](http://appicon.makesit.es/tissues.kdiweb.net)](http://apps.facebook.com/tissues)
 
 
