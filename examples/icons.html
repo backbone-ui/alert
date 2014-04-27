@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Backbone UI Alert</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="//rawgithub.com/commons/common.js/master/build/common-min.js"></script>
+<link rel="stylesheet" href="//rawgithub.com/commons/common.css/master/build/common-min.css" type="text/css" media="screen">
+<!-- styles -->
+<link rel="stylesheet" href="../assets/css/backbone.ui.alert.css" type="text/css" media="screen">
+
+<style>
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 95%;
+	line-height: 160%;
+	background-color: @white;
+	overflow: hidden;
+}
+
+#main {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	color: @black;
+	background-color: #fff;
+	padding: 10px;
+	z-index: 99;
+}
+
+@font-face {
+	font-family: 'webfont';
+	src:url('../assets/fonts/alert/webfont.eot?-b9x8mj');
+	src:url('../assets/fonts/alert/webfont.eot?#iefix-b9x8mj') format('embedded-opentype'),
+		url('../assets/fonts/alert/webfont.woff?-b9x8mj') format('woff'),
+		url('../assets/fonts/alert/webfont.ttf?-b9x8mj') format('truetype'),
+		url('../assets/fonts/alert/webfont.svg?-b9x8mj#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="alert-"], [class*=" alert-"] {
+	font-family: 'webfont';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.ui-alert:before {
+	font-family: 'webfont';
+	font-size: 2rem;
+	padding-right: 10px;
+	padding-left: 10px;
+	vertical-align: middle;
+}
+
+.icon-success-dk:before {
+	content: "\e600";
+}
+.icon-success-lt:before {
+	content: "\e601";
+}
+.icon-error-dk:before {
+	content: "\e602";
+}
+.icon-error-lt:before {
+	content: "\e603";
+}
+.icon-warning-dk:before {
+	content: "\e604";
+}
+.icon-warning-lt:before {
+	content: "\e605";
+}
+
+.ui-alert {
+	text-align: left;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	padding: 5px;
+	/* always place the alert above everything else */
+	z-index: 9999;
+	color: #fff;
+	cursor: pointer;
+	background-color:rgba(255,255,255,1);
+}
+
+.ui-alert:before {
+	font-family: 'webfont';
+	font-size: 2rem;
+	padding-right: 10px;
+	padding-left: 10px;
+	vertical-align: middle;
+}
+
+.ui-alert.error {
+	border: 1px solid red;
+	background-color:rgba(255,255,255,1);
+}
+
+.ui-alert.error:before {
+	content: "\e602";
+	color: red;
+}
+
+.ui-alert.error.light:before {
+	content: "\e603";
+	color: red;
+}
+
+.ui-alert.warning {
+	border: 1px solid orange;
+	background-color:rgba(255,255,255,1);
+}
+
+.ui-alert.warning:before {
+	content: "\e604";
+	color: orange;
+}
+
+.ui-alert.warning.light:before {
+	content: "\e605";
+	color: orange;
+}
+
+.ui-alert.success {
+	border: 1px solid green;
+	background-color:rgba(255,255,255,1);
+}
+
+.ui-alert.success:before {
+	content: "\e600";
+	color: green;
+}
+
+.ui-alert.success.light:before {
+	content: "\e601";
+	color: green;
+}
+
+.ui-alert.info {
+	border: 1px solid blue;
+	background-color:rgba(255,255,255,1);
+}
+
+.ui-alert.info:before {
+	content: "\e604";
+	color: blue;
+}
+
+.ui-alert.info.light:before {
+	content: "\e605";
+	color: blue;
+}
+
+.ui-alert.fade-out {
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	-ms-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+	opacity:0;
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="main">
+	<h1>Styles</h1>
+	<p>Here are the main styles, part of <a href="../assets/css/backbone.ui.alert.css">the stylesheet</a>.</p>
+	<h2>Error</h2>
+	<div class="ui-alert error icon" style="position: relative"><span>this is an error message</span></div>
+	<h2>Warning</h2>
+	<div class="ui-alert warning icon" style="position: relative"><span>this is a warning</span></div>
+	<h2>Success</h2>
+	<div class="ui-alert success icon" style="position: relative"><span>this is a success message</span></div>
+	<h2>Info</h2>
+	<div class="ui-alert info icon" style="position: relative"><span>this is an info notification</span></div>
+	
+	
+	
+	
+	
+	<h2>Error</h2>
+	<div class="ui-alert error icon light" style="position: relative"><span>this is an error message</span></div>
+	<h2>Warning</h2>
+	<div class="ui-alert warning icon light" style="position: relative"><span>this is a warning</span></div>
+	<h2>Success</h2>
+	<div class="ui-alert success icon light" style="position: relative"><span>this is a success message</span></div>
+	<h2>Info</h2>
+	<div class="ui-alert info icon light" style="position: relative"><span>this is an info notification</span></div>
+
+</div>
+
+
+</body>
+</html>
