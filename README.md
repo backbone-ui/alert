@@ -9,6 +9,7 @@ A notification system to display errors, warnings, confirmations and notificatio
 * [Animations](http://rawgithub.com/backbone-ui/alert/master/examples/animations.html)
 * [Interactions](http://rawgithub.com/backbone-ui/alert/master/examples/interactions.html)
 * [Positions](http://rawgithub.com/backbone-ui/alert/master/examples/positions.html)
+* [Icons](http://rawgithub.com/backbone-ui/alert/master/examples/icons.html)
 
 
 ## Install
@@ -31,13 +32,39 @@ You can control the fade out animation and the style of the alert through the op
 
 ## Options
 
-These are the varialbes that give you access to a number of features of the plugin
+These are the variables that give you access to a number of features of the plugin
 
 * **parentEl**: (default: "body" ),
 * **message**: (default: ""),
 * **type**: (default: "info"),
 * **position**: (default: "top-center"),
 * **fade**: (default: 0),
+
+## Using icon fonts
+
+The example [Icons](http://rawgithub.com/backbone-ui/alert/master/examples/icons.html), demonstrates how to add icons to the alerts and can be
+used as is, or customised if desired.
+The codes for the icons are as follows:
+
+### Icons with solid background
+
+Success: e600
+Error: e602
+Warning: e604
+
+### Icons with transparent background
+
+Success: e601
+Error: e603
+Warning: e605
+
+For exact usage, please refer to the css in the header of the example file.
+
+### Customisation
+
+To allow for customisation of the iconfont, the sources selection.json is available in the src/font folder, along with the svg files of the iconfont.
+
+
 
 
 ## Showcase
