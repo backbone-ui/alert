@@ -32,7 +32,8 @@
 
 		initialize: function( options ) {
 			var $el = $(this.el);
-
+			// extend default options
+			this.options = _.extend({}, this.options, options);
 			//var alertBox = $('<div class="ui-alert top-center error"><span>' + this.options.message + '</span></div>');
 			$el.addClass( this.options.type ).addClass( this.options.position );
 			$el.find("span").html( this.options.message );
