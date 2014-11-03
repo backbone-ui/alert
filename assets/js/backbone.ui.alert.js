@@ -1,4 +1,5 @@
-/* Backbone UI: Alert
+/*
+ * Backbone UI: Alert
  * Source: https://github.com/backbone-ui/alert
  * Copyright © Makesites.org
  *
@@ -7,12 +8,29 @@
  * Released under the [MIT license](http://makesites.org/licenses/MIT)
  */
 
-(function(w, _, Backbone, APP) {
+(function (lib) {
 
-	// Support backbone app (if available)
-	var View = ( typeof APP != "undefined" && typeof APP.View != "undefined" ) ? APP.View : Backbone.View;
-	// find the query lib
-	var $ = w.jQuery || w.Zepto;
+	//"use strict";
+
+	// Support module loaders
+	if (typeof define === 'function' && define.amd) {
+		// AMD. Register as an anonymous module.
+		define(['jquery', 'underscore', 'backbone'], lib);
+	} else if ( typeof module === "object" && module && typeof module.exports === "object" ){
+		// Expose as module.exports in loaders that implement CommonJS module pattern.
+		module.exports = lib;
+	} else {
+		// Browser globals
+		// - getting the available query lib
+		var $ = window.jQuery || window.Zepto || window.vQuery;
+		lib($, window._, window.Backbone);
+	}
+
+}(function ($, _, Backbone) {
+
+	// support for Backbone APP() view if available...
+	var isAPP = ( typeof APP !== "undefined" );
+	var View = ( isAPP && typeof APP.View !== "undefined" ) ? APP.View : Backbone.View;
 
 	var Alert = View.extend({
 
@@ -56,31 +74,27 @@
 
 	});
 
-	// fallbacks
-	if( _.isUndefined( Backbone.UI ) ) Backbone.UI = {};
-	Backbone.UI.Alert = Alert;
 
-	// Support module loaders
-	if ( typeof module === "object" && module && typeof module.exports === "object" ) {
-		// Expose as module.exports in loaders that implement CommonJS module pattern.
-		module.exports = Alert;
-	} else {
-		// Register as a named AMD module, used in Require.js
-		if ( typeof define === "function" && define.amd ) {
-			//define( "backbone.ui.alert", [], function () { return Alert; } );
-			define( [], function () { return Alert; } );
-		}
+	// update Backbone namespace regardless
+	Backbone.UI = Backbone.UI ||{};
+	Backbone.UI.Alert = Alert;
+	// update APP namespace
+	if( isAPP ){
+		APP.UI = APP.UI || {};
+		APP.UI.Alert = Backbone.UI.Alert;
 	}
+
 	// If there is a window object, that at least has a document property
-	if ( typeof window === "object" && typeof window.document === "object" ) {
+	if( typeof window === "object" && typeof window.document === "object" ){
 		window.Backbone = Backbone;
 		// update APP namespace
-		if( typeof APP != "undefined" && (_.isUndefined( APP.UI ) || _.isUndefined( APP.UI.Alert ) ) ){
-			APP.UI = APP.UI || {};
-			APP.UI.Alert = Backbone.UI.Alert;
+		if( isAPP ){
 			window.APP = APP;
 		}
 	}
 
+	// for module loaders:
+	return Alert;
 
-})(this.window, this._, this.Backbone, this.APP);
+
+}));
