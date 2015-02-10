@@ -1,0 +1,45 @@
+.ui-alert {
+	text-align: center;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding: 5px;
+	/* always place the alert above everything else */
+	z-index: 9999;
+	color: #fff;
+	cursor: pointer;
+}
+
+.ui-alert.top-center {
+	position: fixed;
+	top: 20px;
+	left: 50%;
+	width: 300px;
+	margin-left: -150px;
+	height: auto;
+}
+
+.ui-alert.error {
+	background-color:rgba(255,0,0,1);
+}
+
+.ui-alert.warning {
+	background-color:rgba(255,153,0,1);
+}
+
+.ui-alert.success {
+	background-color:rgba(0,200,0,1);
+}
+
+.ui-alert.info {
+	background-color:rgba(0,153,255,1);
+}
+
+.ui-alert.fade-out {
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	-ms-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+	opacity:0;
+}
