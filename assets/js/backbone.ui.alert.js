@@ -55,8 +55,9 @@
 			//var alertBox = $('<div class="ui-alert top-center error"><span>' + this.options.message + '</span></div>');
 			$el.addClass( this.options.type ).addClass( this.options.position );
 			$el.find("span").html( this.options.message );
-
-			$(this.options.parentEl).append( $el );
+			// check if the element already exists in the DOM (move this to postRender?)
+			if( !document.body.contains(this.el) )
+				$(this.options.parentEl).append( $el );
 			// add fading effect
 			if( this.options.fade ){
 				setTimeout(function(){
