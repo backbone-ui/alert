@@ -7,7 +7,6 @@
  * Distributed through [Makesites.org](http://makesites.org)
  * Released under the [MIT license](http://makesites.org/licenses/MIT)
  */
-
 (function (lib) {
 
 	//"use strict";
@@ -15,7 +14,7 @@
 	// Support module loaders
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
-		define(['jquery', 'underscore', 'backbone'], lib);
+		define('backbone.ui.alert', ['jquery', 'underscore', 'backbone'], lib);
 	} else if ( typeof module === "object" && module && typeof module.exports === "object" ){
 		// Expose as module.exports in loaders that implement CommonJS module pattern.
 		module.exports = lib;
@@ -29,7 +28,8 @@
 }(function ($, _, Backbone) {
 
 	// support for Backbone APP() view if available...
-	var isAPP = ( typeof APP !== "undefined" );
+	APP = APP || window.APP || null;
+	var isAPP = ( APP !== null );
 	var View = ( isAPP && typeof APP.View !== "undefined" ) ? APP.View : Backbone.View;
 
 	var Alert = View.extend({
@@ -82,7 +82,7 @@
 	// update APP namespace
 	if( isAPP ){
 		APP.UI = APP.UI || {};
-		APP.UI.Alert = Backbone.UI.Alert;
+		APP.UI.Alert = Alert;
 	}
 
 	// If there is a window object, that at least has a document property
@@ -96,6 +96,5 @@
 
 	// for module loaders:
 	return Alert;
-
 
 }));
