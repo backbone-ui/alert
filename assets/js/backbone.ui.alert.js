@@ -39,7 +39,7 @@
 		options: {
 			parentEl: "body",
 			message: "",
-			type: "info",
+			className: "info",
 			position: "top-center",
 			fade: 0,
 		},
@@ -50,10 +50,15 @@
 
 		initialize: function( options ) {
 			var $el = $(this.el);
+			// FIX: support option type
+			if( options.type ){
+				options.className = options.type;
+				delete options.type;
+			}
 			// extend default options
 			this.options = _.extend({}, this.options, options);
 			//var alertBox = $('<div class="ui-alert top-center error"><span>' + this.options.message + '</span></div>');
-			$el.addClass( this.options.type ).addClass( this.options.position );
+			$el.addClass( this.options.className ).addClass( this.options.position );
 			$el.find("span").html( this.options.message );
 			// check if the element already exists in the DOM (move this to postRender?)
 			if( !document.body.contains(this.el) )
